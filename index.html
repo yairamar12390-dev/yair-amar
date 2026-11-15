@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>יאיר עמר · הרצאות העצמה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Suez+One&family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* one visual world: night stage, gold light, ember accent — same language as the videos */
+  --ink:#0e0a07;
+  --panel:#1a130d;
+  --line:#3a2a1b;
+  --text:#f6ece0;
+  --muted:#c9b59c;
+  --gold:#f0b44a;
+  --ember:#ff7a1a;
+  --display:"Suez One","Frank Ruhl Libre",Georgia,serif;
+  --body:"Assistant","Segoe UI",Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+.wrap{width:min(1100px,100% - 36px);margin-inline:auto}
+section{padding:72px 0}
+.eyebrow{color:var(--gold);font-weight:800;letter-spacing:.02em;font-size:15px;margin-bottom:10px}
+.h2{font-size:clamp(32px,6vw,52px)}
+.lead{color:var(--muted);max-width:62ch;margin:14px 0 0}
+.gold{background:linear-gradient(180deg,#fff1cc 0%,var(--gold) 55%,#d9821e 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* buttons */
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:800;font-size:18px;text-decoration:none;border:2px solid transparent;transition:transform .15s,box-shadow .15s}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn-wa{background:linear-gradient(180deg,#ffd27a,var(--gold) 50%,#e08a1f);color:#2a1300;box-shadow:0 8px 30px rgba(240,180,74,.35)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(240,180,74,.5)}
+.btn-ghost{border-color:var(--gold);color:var(--gold);background:rgba(14,10,7,.6)}
+.btn-ghost:hover{background:rgba(240,180,74,.12)}
+.phone{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{position:relative;padding:0;overflow:hidden;background:#0b0705}
+.hero-img{position:absolute;inset:0;background:url("media/hero.jpg") center 18%/cover no-repeat}
+.hero-img::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(14,10,7,.15) 0%,rgba(14,10,7,.35) 40%,rgba(14,10,7,.95) 78%,var(--ink) 100%),
+  radial-gradient(80% 50% at 50% 0%,rgba(255,122,26,.25),transparent 70%)}
+.hero-in{position:relative;padding:min(92vw,540px) 0 40px}
+@media (min-width:900px){
+  .hero-img{inset:0 0 0 45%;background-position:center 20%}
+  .hero-img::after{background:linear-gradient(270deg,rgba(14,10,7,0) 0%,rgba(14,10,7,.4) 55%,var(--ink) 100%),linear-gradient(180deg,transparent 70%,var(--ink))}
+  .hero-in{padding:120px 0 70px;max-width:620px;margin-inline-start:0}
+}
+.name{font-family:var(--display);font-size:22px;color:var(--gold);display:flex;align-items:center;gap:10px}
+.name::before{content:"";width:34px;height:3px;background:var(--gold);border-radius:3px}
+.hero h1{font-size:clamp(46px,10vw,88px);margin-top:10px}
+.role{font-size:clamp(18px,3.2vw,22px);font-weight:600;margin-top:16px;color:#fff}
+.role b{color:var(--gold);font-weight:800}
+
+/* energy graph — signature */
+.graph{position:relative;margin-top:30px;height:150px}
+.graph svg{width:100%;height:100%;overflow:visible}
+.graph .path{fill:none;stroke:url(#g1);stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(255,140,40,.8));stroke-dasharray:1200;stroke-dashoffset:0;animation:draw 2.2s ease-out .3s both}
+.graph .area{fill:url(#g2);opacity:.5}
+.graph text{fill:var(--muted);font:600 13px var(--body)}
+.graph .peak{fill:var(--gold);font:800 16px var(--body)}
+@keyframes draw{from{stroke-dashoffset:1200}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.graph .path{animation:none}html{scroll-behavior:auto}}
+
+/* video */
+.feature{display:grid;gap:34px;align-items:center}
+@media (min-width:900px){.feature{grid-template-columns:1fr 380px}}
+.vframe{border-radius:22px;overflow:hidden;border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(240,180,74,.08),0 30px 80px rgba(0,0,0,.6);background:#000;aspect-ratio:9/16;max-width:380px;margin-inline:auto;width:100%}
+.vframe video{width:100%;height:100%;object-fit:cover}
+
+/* story */
+.story{background:linear-gradient(180deg,var(--ink),#140d08 40%,var(--ink))}
+.steps{display:grid;gap:18px;margin-top:36px;counter-reset:s}
+@media (min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.step img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.step .t{padding:16px 18px 20px}
+.step .k{font-family:var(--display);color:var(--gold);font-size:15px}
+.step h3{font-size:24px;margin-top:4px}
+.step p{margin:8px 0 0;color:var(--muted);font-size:16px}
+.step:nth-child(1) img{filter:grayscale(1) sepia(.35) brightness(.9)}
+.step:nth-child(2) img{filter:grayscale(.55)}
+
+/* quote band */
+.quote{padding:90px 0;text-align:center;background:radial-gradient(60% 80% at 50% 50%,rgba(255,122,26,.18),transparent 70%)}
+.quote p{font-family:var(--display);font-size:clamp(34px,7vw,66px);line-height:1.2;margin:0}
+.quote p+p{margin-top:10px}
+
+/* pillars */
+.pillars{display:grid;gap:16px;margin-top:34px}
+@media (min-width:760px){.pillars{grid-template-columns:repeat(4,1fr)}}
+.pillar{padding:24px 22px;border-radius:18px;background:linear-gradient(180deg,#22180f,#150f0a);border:1px solid var(--line);position:relative}
+.pillar::before{content:"";position:absolute;inset-inline-start:22px;top:0;width:46px;height:4px;background:var(--gold);border-radius:0 0 4px 4px}
+.pillar h3{font-size:26px;color:var(--gold)}
+.pillar p{margin:8px 0 0;color:var(--muted);font-size:16px}
+
+/* audience chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{padding:10px 18px;border-radius:999px;border:1.5px solid var(--gold);color:var(--text);font-weight:600;background:rgba(240,180,74,.06)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:30px}
+@media (min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.gallery figure{margin:0;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figcaption{position:absolute;inset-inline:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:800;font-size:15px}
+
+/* media */
+.press{display:grid;gap:18px;margin-top:34px}
+@media (min-width:760px){.press{grid-template-columns:1.3fr 1fr 1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card .t{padding:16px 18px 20px}
+.card h3{font-size:24px}
+.card p{margin:6px 0 0;color:var(--muted);font-size:16px}
+.award{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:22px 24px;border-radius:18px;border:2px solid var(--gold);background:linear-gradient(90deg,rgba(240,180,74,.14),transparent)}
+.award .big{font-family:var(--display);font-size:clamp(28px,5vw,40px)}
+
+/* more videos */
+.vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+@media (min-width:900px){.vgrid{grid-template-columns:repeat(3,1fr)}}
+.vgrid .vframe{max-width:none;border-width:1.5px;border-radius:16px}
+.vgrid .cap{margin-top:8px;font-weight:800;text-align:center}
+
+/* booking */
+.book{background:linear-gradient(180deg,var(--ink),#1b1009)}
+.formbox{margin-top:30px;display:grid;gap:26px}
+@media (min-width:900px){.formbox{grid-template-columns:1fr 1fr;align-items:start}}
+form{display:grid;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px}
+label{font-weight:700;font-size:15px;display:grid;gap:6px}
+input,select{font:inherit;color:var(--text);background:#0f0a07;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+.row2{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.note{color:var(--muted);font-size:15px;margin:0}
+.contact{display:grid;gap:12px}
+.bigphone{font-family:var(--display);font-size:clamp(38px,8vw,60px);color:var(--gold)}
+
+
+/* testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+@media (min-width:900px){.tgrid{grid-template-columns:repeat(4,1fr)}}
+.tcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.tcard video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.tcard .t{padding:12px 14px 16px}
+.tcard .q{font-family:var(--display);color:var(--gold);font-size:30px;line-height:1}
+.tcard .who{font-weight:800}
+.tcard .role2{color:var(--muted);font-size:14px}
+.clips{display:grid;gap:14px;margin-top:30px}
+.clips{grid-template-columns:1fr 1fr}
+@media (min-width:760px){.clips{grid-template-columns:repeat(2,minmax(0,320px))}}
+.clips video{width:100%;border-radius:16px;border:1.5px solid var(--gold);background:#000;aspect-ratio:9/16;object-fit:cover}
+.bookrow{display:grid;gap:18px;margin-top:30px;align-items:center}
+@media (min-width:760px){.bookrow{grid-template-columns:1fr 1fr 1.2fr}}
+.bookrow img{border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);width:100%}
+.bookrow .txt p{color:var(--muted);margin:10px 0 0}
+.magrow{display:grid;gap:14px;margin-top:18px}
+@media (min-width:760px){.magrow{grid-template-columns:1fr 2fr}}
+.magrow img{width:100%;border-radius:14px;border:1px solid var(--line)}
+
+footer{padding:40px 0 110px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+
+/* sticky mobile bar */
+.bar{position:fixed;inset-inline:0;bottom:0;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(14,10,7,.92);backdrop-filter:blur(8px);border-top:1px solid var(--line);z-index:10}
+.bar .btn{flex:1;justify-content:center;padding:13px 10px;font-size:16px}
+@media (min-width:900px){.bar{display:none}footer{padding-bottom:40px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-img" role="img" aria-label="יאיר עמר"></div>
+  <div class="wrap hero-in">
+    <div class="name">יאיר עמר</div>
+    <h1><span class="gold">למרות הכל —</span><br>בחרתי לנצח.</h1>
+    <p class="role">מרצה, סופר ומאמן להעצמה <b>אישית, פיזית ומנטלית</b>.<br>בחר לחיות חזק יותר, ועכשיו הוא בשליחות לחזק גם אתכם.</p>
+    <div class="graph" aria-hidden="true">
+      <svg viewBox="0 0 600 150" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="g1" x1="1" x2="0"><stop offset="0" stop-color="#a77a45"/><stop offset=".6" stop-color="#f0b44a"/><stop offset="1" stop-color="#ffe2a0"/></linearGradient>
+          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ff7a1a" stop-opacity=".55"/><stop offset="1" stop-color="#ff7a1a" stop-opacity="0"/></linearGradient>
+        </defs>
+        <path class="area" d="M600 80 C570 120 545 130 520 118 C490 100 470 70 440 95 C410 120 390 60 360 50 C330 42 315 85 285 80 C255 75 240 30 205 28 C170 26 160 55 130 45 C100 35 70 10 0 8 L0 150 L600 150 Z"/>
+        <path class="path" d="M600 80 C570 120 545 130 520 118 C490 100 470 70 440 95 C410 120 390 60 360 50 C330 42 315 85 285 80 C255 75 240 30 205 28 C170 26 160 55 130 45 C100 35 70 10 0 8"/>
+        <text x="585" y="140">לקות</text><text x="520" y="145">ניתוח</text><text x="445" y="125">שיקום</text>
+        <text x="360" y="40">ספורט</text><text x="210" y="18">במה</text><text class="peak" x="40" y="30">השפעה</text>
+      </svg>
+    </div>
+    <div class="btns">
+      <a class="btn btn-wa" href="https://wa.me/972527075450?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%99%D7%90%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%94" target="_blank" rel="noopener">להזמנת הרצאה בוואטסאפ</a>
+      <a class="btn btn-ghost" href="tel:+972527075450">חייגו: <span class="phone">052-707-5450</span></a>
+    </div>
+  </div>
+</header>
+
+<section id="video">
+  <div class="wrap feature">
+    <div>
+      <div class="eyebrow">צפו בסיפור</div>
+      <h2 class="h2">ילד עם לקות ראייה ונכות ברגליים, שהפך למרצה שנוגע באלפי לבבות</h2>
+      <p class="lead">מכיסא גלגלים להליכון, מהליכון לקביים, ומשם לבמה. דרך עולם הספורט והפסיכולוגיה החיובית, יאיר מעביר לקהל את הכלים שהוא עצמו בנה כדי לקום שוב ושוב.</p>
+      <div class="btns"><a class="btn btn-ghost" href="#book">אני רוצה את ההרצאה הזו</a></div>
+    </div>
+    <div class="vframe"><video controls playsinline preload="metadata" poster="media/poster_yair_amar_full.jpg" src="media/yair_amar_full.mp4"></video></div>
+  </div>
+</section>
+
+
+<section id="reviews" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow">המלצות</div>
+    <h2 class="h2">מה אומרים אחרי ההרצאה</h2>
+    <p class="lead">מורים, אנשי חינוך ומשתתפים, במילים שלהם.</p>
+    <div class="tgrid">
+      <article class="tcard"><video controls playsinline preload="none" poster="media/poster_t1e.jpg" src="media/t1e.mp4"></video><div class="t"><div class="q">”</div><div class="who">אשת חינוך</div><div class="role2">המלצה אחרי הרצאה בבית ספר</div></div></article>
+      <article class="tcard"><video controls playsinline preload="none" poster="media/poster_t3e.jpg" src="media/t3e.mp4"></video><div class="t"><div class="q">”</div><div class="who">משתתף בהרצאה</div><div class="role2">המלצה מהקהל</div></div></article>
+      <article class="tcard"><video controls playsinline preload="none" poster="media/poster_t4e.jpg" src="media/t4e.mp4"></video><div class="t"><div class="q">”</div><div class="who">איש חינוך</div><div class="role2">המלצה אחרי ההרצאה</div></div></article>
+      <article class="tcard"><video controls playsinline preload="none" poster="media/poster_t2e.jpg" src="media/t2e.mp4"></video><div class="t"><div class="q">”</div><div class="who">תלמיד</div><div class="role2">רגע אחרי ההרצאה, יחד עם יאיר</div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="live" style="padding-top:10px">
+  <div class="wrap">
+    <div class="eyebrow">מתוך ההרצאות</div>
+    <h2 class="h2">ככה זה נראה מבפנים</h2>
+    <div class="clips">
+      <video controls playsinline preload="none" poster="media/poster_l1e.jpg" src="media/l1e.mp4"></video>
+      <video controls playsinline preload="none" poster="media/poster_l2e.jpg" src="media/l2e.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="eyebrow">המסע</div>
+    <h2 class="h2">צעד אחר צעד</h2>
+    <div class="steps">
+      <article class="step"><img src="media/child.jpg" alt="יאיר בילדותו" loading="lazy"><div class="t"><div class="k">ההתחלה</div><h3>ילד עם חלום</h3><p>גדל עם לקות ראייה ונכות ברגליים.</p></div></article>
+      <article class="step"><img src="media/journey.jpg" alt="כיסא גלגלים, הליכון וקביים" loading="lazy"><div class="t"><div class="k">השבר</div><h3>מסע שיקום ארוך</h3><p>ניתוחים, כיסא גלגלים, הליכון וקביים.</p></div></article>
+      <article class="step"><img src="media/sport.jpg" alt="יאיר במגרש הספורט" loading="lazy"><div class="t"><div class="k">הכוח</div><h3>ספורט ופסיכולוגיה חיובית</h3><p>משם צמחו ההתמדה והחוסן.</p></div></article>
+      <article class="step"><img src="media/stage.jpg" alt="קהל גדול בהרצאה" loading="lazy"><div class="t"><div class="k">השליחות</div><h3>על הבמה</h3><p>היום הוא מעביר את הכוח הלאה, לאלפי אנשים.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<div class="quote">
+  <div class="wrap">
+    <p>אל תפחד להיות שונה.</p>
+    <p class="gold">תפחד להיות כמו כולם.</p>
+  </div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <div class="eyebrow">מה לוקחים מההרצאה</div>
+    <h2 class="h2">הרצאה שנותנת כוח אמיתי</h2>
+    <div class="pillars">
+      <div class="pillar"><h3>העצמה אישית</h3><p>להאמין בעצמך ולקום גם אחרי נפילה.</p></div>
+      <div class="pillar"><h3>חוסן מנטלי</h3><p>איך מחזיקים מעמד כשקשה, מתוך סיפור אמיתי.</p></div>
+      <div class="pillar"><h3>כוח פיזי</h3><p>מה עולם הספורט מלמד על התמדה ומשמעת.</p></div>
+      <div class="pillar"><h3>תודעה וצמיחה</h3><p>פסיכולוגיה חיובית שהופכת קושי למנוע.</p></div>
+    </div>
+    <div class="eyebrow" style="margin-top:46px">למי זה מתאים</div>
+    <div class="chips">
+      <span class="chip">מנהלי ומנהלות משאבי אנוש</span><span class="chip">רכזים ורכזות חברתיים</span><span class="chip">רכזות רווחה</span>
+      <span class="chip">בני נוער</span><span class="chip">גמלאים</span><span class="chip">מכינות קדם צבאיות</span>
+      <span class="chip">אולפנות וישיבות</span><span class="chip">קהילות ושבתות</span><span class="chip">חברות וארגונים</span>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow">מההרצאות</div>
+    <h2 class="h2">אלפי לבבות כבר נגעו בסיפור</h2>
+    <div class="gallery">
+      <figure><img src="media/g00.jpg" alt="" loading="lazy"><figcaption>אולפנות</figcaption></figure>
+      <figure><img src="media/g01.jpg" alt="" loading="lazy"><figcaption>ישיבות</figcaption></figure>
+      <figure><img src="media/g02.jpg" alt="" loading="lazy"><figcaption>מחנות נוער</figcaption></figure>
+      <figure><img src="media/g03.jpg" alt="" loading="lazy"><figcaption>בני נוער</figcaption></figure>
+      <figure><img src="media/g04.jpg" alt="" loading="lazy"><figcaption>קהילות</figcaption></figure>
+      <figure><img src="media/g05.jpg" alt="" loading="lazy"><figcaption>צעירים</figcaption></figure>
+      <figure><img src="media/g06.jpg" alt="" loading="lazy"><figcaption>בתי ספר</figcaption></figure>
+      <figure><img src="media/g07.jpg" alt="" loading="lazy"><figcaption>מתנ"סים</figcaption></figure>
+      <figure><img src="media/g08.jpg" alt="" loading="lazy"><figcaption>קהל גדול</figcaption></figure>
+      <figure><img src="media/g09.jpg" alt="" loading="lazy"><figcaption>גמלאים</figcaption></figure>
+      <figure><img src="media/g10.jpg" alt="" loading="lazy"><figcaption>מכינות</figcaption></figure>
+      <figure><img src="media/g11.jpg" alt="" loading="lazy"><figcaption>בחוץ, על המגרש</figcaption></figure>
+      <figure><img src="media/g12.jpg" alt="" loading="lazy"><figcaption>ערב קהילתי</figcaption></figure>
+      <figure><img src="media/g13.jpg" alt="" loading="lazy"><figcaption>מבוגרים וגמלאים</figcaption></figure>
+      <figure><img src="media/g14.jpg" alt="" loading="lazy"><figcaption>בני נוער</figcaption></figure>
+      <figure><img src="media/g15.jpg" alt="" loading="lazy"><figcaption>כוח שמדבק</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <div class="wrap">
+    <div class="eyebrow">בתקשורת</div>
+    <h2 class="h2">בטלוויזיה, בעיתונות ובספר</h2>
+    <div class="press">
+      <article class="card"><img src="media/tv.jpg" alt="יאיר צופה בכתבה עליו בטלוויזיה" loading="lazy"><div class="t"><h3>הכתבה בטלוויזיה</h3><p>"פתאום קם אדם, ומתחיל ללכת" — הסיפור שלו על המסך.</p></div></article>
+      <article class="card"><img src="media/paper2.jpg" alt="שער מגזין עם יאיר עמר" loading="lazy" style="object-position:top"><div class="t"><h3>כתבות בעיתונות</h3><p>"הולך בעקבות הלב", "רואה את האור" ועוד.</p></div></article>
+      <article class="card"><img src="media/book.jpg" alt="הספר למרות הכל כוכב יאיר" loading="lazy" style="object-position:30% 60%"><div class="t"><h3>הספר</h3><p><b>למרות הכל כוכב יאיר</b> — מסע הגבורה שעתיד להיות שלך.</p></div></article>
+    </div>
+    <div class="award"><span class="big gold">מקום ראשון</span><span>בתחרות מרצה השנה 2021</span></div>
+    <div class="bookrow">
+      <img src="media/bookcover.jpg" alt="עטיפת הספר למרות הכל כוכב יאיר" loading="lazy">
+      <img src="media/bookback.jpg" alt="הכריכה האחורית של הספר" loading="lazy">
+      <div class="txt">
+        <div class="eyebrow">הספר</div>
+        <h3 style="font-size:34px">למרות הכל <span class="gold">כוכב יאיר</span></h3>
+        <p>מסע הגבורה שעתיד להיות שלך. סיפור של לקות ראייה, נכות ברגליים, נפילות וקימות, וארגז כלים לחיים מלאי אור.</p>
+        <div class="btns"><a class="btn btn-ghost" href="https://wa.me/972527075450?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%99%D7%90%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%AA%20%D7%94%D7%A1%D7%A4%D7%A8" target="_blank" rel="noopener">להזמנת הספר</a></div>
+      </div>
+    </div>
+    <div class="eyebrow" style="margin-top:40px">במגזין אתנחתא</div>
+    <div class="magrow">
+      <img src="media/mag_cover.jpg" alt="שער מגזין אתנחתא: הולך בעקבות הלב" loading="lazy">
+      <img src="media/mag_spread.jpg" alt="כתבה: פתאום קם אדם ומתחיל ללכת" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<section id="videos" style="padding-top:20px">
+  <div class="wrap">
+    <div class="eyebrow">עוד סרטונים</div>
+    <h2 class="h2">לראות, להרגיש, להזמין</h2>
+    <div class="vgrid">
+      <div><div class="vframe"><video controls playsinline preload="none" poster="media/poster_yair_amar_hartzaot.jpg" src="media/yair_amar_hartzaot.mp4"></video></div><div class="cap">הסיפור שנוגע באלפי לבבות</div></div>
+      <div><div class="vframe"><video controls playsinline preload="none" poster="media/poster_yair_amar_promo.jpg" src="media/yair_amar_promo.mp4"></video></div><div class="cap">נגד כל הסיכויים</div></div>
+      <div><div class="vframe"><video controls playsinline preload="none" poster="media/poster_clip_hashraa.jpg" src="media/clip_hashraa.mp4"></video></div><div class="cap">מכאב לעוצמה</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="quote">
+  <div class="wrap">
+    <p>בואו לחוות חוויה מנצחת שלא תשכחו,</p>
+    <p class="gold">והפכו לגרסה הטובה ביותר של עצמכם.</p>
+  </div>
+</div>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="eyebrow">להזמנת הרצאה</div>
+    <h2 class="h2">רוצים את יאיר אצלכם?</h2>
+    <div class="formbox">
+      <form id="f" novalidate>
+        <label for="nm">שם מלא<input id="nm" autocomplete="name" placeholder="השם שלך"></label>
+        <label for="org">ארגון / מוסד<input id="org" placeholder="למשל: אולפנה, חברה, מתנ״ס"></label>
+        <div class="row2">
+          <label for="aud">קהל היעד
+            <select id="aud"><option value="">בחרו</option><option>בני נוער</option><option>צעירים / מכינה</option><option>עובדים בארגון</option><option>גמלאים</option><option>קהילה / שבת</option><option>אחר</option></select>
+          </label>
+          <label for="cnt">מספר משתתפים<input id="cnt" inputmode="numeric" placeholder="למשל 80"></label>
+        </div>
+        <label for="dt">תאריך משוער<input id="dt" placeholder="למשל: אמצע דצמבר"></label>
+        <a id="send" class="btn btn-wa" href="#" target="_blank" rel="noopener" style="justify-content:center">שליחה ליאיר בוואטסאפ</a>
+        <p class="note">הלחיצה פותחת את וואטסאפ עם הודעה מוכנה. נשאר רק ללחוץ "שלח".</p>
+      </form>
+      <div class="contact">
+        <div>או פשוט חייגו:</div>
+        <a class="bigphone phone" href="tel:+972527075450">052-707-5450</a>
+        <p class="lead" style="margin-top:0">הרצאות להעצמה אישית, פיזית, תודעתית ומנטלית, מתוך סיפור חיים מעורר השראה. מותאמות לגיל ולקהל.</p>
+        <div class="vframe" style="max-width:300px;margin-inline:0;aspect-ratio:4/5"><img src="media/portrait.jpg" alt="יאיר עמר מחייך" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">יאיר עמר · מרצה, סופר ומאמן להעצמה אישית, פיזית ומנטלית · <span class="phone">052-707-5450</span></div>
+</footer>
+
+<nav class="bar" aria-label="יצירת קשר מהירה">
+  <a class="btn btn-wa" href="#book">הזמנת הרצאה</a>
+  <a class="btn btn-ghost" href="tel:+972527075450">חיוג</a>
+</nav>
+
+<script>
+(function(){
+  var ids=['nm','org','aud','cnt','dt'];
+  var send=document.getElementById('send');
+  function build(){
+    var v=function(id){return (document.getElementById(id).value||'').trim();};
+    var lines=['שלום יאיר, אשמח לפרטים על הרצאה.'];
+    if(v('nm'))lines.push('שם: '+v('nm'));
+    if(v('org'))lines.push('ארגון: '+v('org'));
+    if(v('aud'))lines.push('קהל: '+v('aud'));
+    if(v('cnt'))lines.push('משתתפים: '+v('cnt'));
+    if(v('dt'))lines.push('תאריך: '+v('dt'));
+    send.href='https://wa.me/972527075450?text='+encodeURIComponent(lines.join('\n'));
+  }
+  ids.forEach(function(id){var el=document.getElementById(id);el.addEventListener('input',build);el.addEventListener('change',build);});
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();});
+  build();
+  // pause other videos when one plays
+  var vids=[].slice.call(document.querySelectorAll('video'));
+  vids.forEach(function(v){v.addEventListener('play',function(){vids.forEach(function(o){if(o!==v)o.pause();});});});
+})();
+</script>
+</body>
+</html>
