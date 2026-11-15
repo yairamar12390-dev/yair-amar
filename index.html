@@ -168,6 +168,24 @@ input:focus,select:focus{outline:none;border-color:var(--gold)}
 @media (min-width:760px){.magrow{grid-template-columns:1fr 2fr}}
 .magrow img{width:100%;border-radius:14px;border:1px solid var(--line)}
 
+
+/* ---- responsive fixes ---- */
+.feature>*,.formbox>*,.press>*,.bookrow>*,.magrow>*,.clips>*,.tgrid>*,.vgrid>*,.steps>*,.pillars>*,.gallery>*,.row2>*{min-width:0}
+input,select{width:100%;min-width:0;max-width:100%}
+.hero-photo{display:none}
+.btn .short{display:none}
+@media (max-width:899px){
+  .hero-img{display:none}
+  .hero-photo{display:block;width:100%;height:auto;aspect-ratio:1066/1600;object-fit:cover;
+    -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+  .hero-in{padding:0 0 34px;margin-top:-90px}
+  .hero .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero .btns .btn{justify-content:center;padding:14px 8px;font-size:16px;white-space:nowrap}
+  .btn .long{display:none}
+  .btn .short{display:inline}
+}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+
 footer{padding:40px 0 110px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
 
 /* sticky mobile bar */
@@ -180,6 +198,7 @@ footer{padding:40px 0 110px;color:var(--muted);font-size:15px;border-top:1px sol
 
 <header class="hero">
   <div class="hero-img" role="img" aria-label="יאיר עמר"></div>
+  <img class="hero-photo" src="media/hero.jpg" alt="יאיר עמר" width="1066" height="1600">
   <div class="wrap hero-in">
     <div class="name">יאיר עמר</div>
     <h1><span class="gold">למרות הכל —</span><br>בחרתי לנצח.</h1>
@@ -197,8 +216,8 @@ footer{padding:40px 0 110px;color:var(--muted);font-size:15px;border-top:1px sol
       </svg>
     </div>
     <div class="btns">
-      <a class="btn btn-wa" href="https://wa.me/972527075450?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%99%D7%90%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%94" target="_blank" rel="noopener">להזמנת הרצאה בוואטסאפ</a>
-      <a class="btn btn-ghost" href="tel:+972527075450">חייגו: <span class="phone">052-707-5450</span></a>
+      <a class="btn btn-wa" href="https://wa.me/972527075450?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%99%D7%90%D7%99%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A6%D7%90%D7%94" target="_blank" rel="noopener"><span class="long">להזמנת הרצאה בוואטסאפ</span><span class="short">הזמנה בוואטסאפ</span></a>
+      <a class="btn btn-ghost" href="tel:+972527075450"><span class="long">חייגו: <span class="phone">052-707-5450</span></span><span class="short">חיוג ליאיר</span></a>
     </div>
   </div>
 </header>
