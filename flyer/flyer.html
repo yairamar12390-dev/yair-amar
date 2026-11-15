@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>פלייר אימון לנוער – יאיר עמר</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0b1633; --night2:#162a5c; --sun:#ff8a1f; --gold:#ffc23d;
+    --cream:#fff8ee; --ink:#14203f; --muted:#4a5577;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#ddd}
+  body{font-family:'Heebo',sans-serif;color:var(--ink)}
+  .page{width:794px;height:1123px;margin:0 auto;background:var(--cream);position:relative;overflow:hidden;display:flex;flex-direction:column}
+
+  /* HERO */
+  .hero{position:relative;height:356px;background:
+      radial-gradient(circle at 18% 105%, rgba(255,160,40,.55) 0, rgba(255,138,31,.18) 28%, transparent 52%),
+      linear-gradient(160deg,var(--night) 0%,var(--night2) 70%,#3a2a5a 100%);
+    color:#fff;display:flex}
+  .hero .stars{position:absolute;inset:0;background-image:
+      radial-gradient(1.5px 1.5px at 60% 12%,#fff8 50%,transparent 51%),
+      radial-gradient(1px 1px at 75% 30%,#fff7 50%,transparent 51%),
+      radial-gradient(1.5px 1.5px at 88% 8%,#fff9 50%,transparent 51%),
+      radial-gradient(1px 1px at 52% 40%,#fff6 50%,transparent 51%),
+      radial-gradient(1.2px 1.2px at 95% 45%,#fff7 50%,transparent 51%),
+      radial-gradient(1px 1px at 66% 55%,#fff5 50%,transparent 51%)}
+  .hero-text{position:relative;flex:1;padding:28px 40px 0 10px;z-index:2}
+  .kicker{display:inline-block;background:var(--sun);color:var(--night);font-weight:800;font-size:15px;padding:5px 14px;border-radius:30px;letter-spacing:.3px}
+  h1{font-weight:900;font-size:39px;line-height:1.07;margin-top:14px;letter-spacing:-.5px}
+  h1 .glow{color:var(--gold)}
+  .sub{font-size:16.5px;line-height:1.45;margin-top:11px;color:#dfe6ff;max-width:440px}
+  .sub b{color:#fff}
+  .name{margin-top:12px;display:flex;align-items:baseline;gap:10px}
+  .name strong{font-size:27px;font-weight:900}
+  .name span{font-size:14px;color:#c9d3f5}
+  .hero-photo{position:relative;width:282px;flex:none;z-index:1}
+  .hero-photo img{position:absolute;bottom:0;left:0;width:282px;height:356px;object-fit:cover;object-position:50% 12%;
+    -webkit-mask-image:linear-gradient(to left,transparent 0,#000 22%);mask-image:linear-gradient(to left,transparent 0,#000 22%)}
+  .star-badge{position:absolute;left:18px;top:22px;z-index:3;width:92px;height:92px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#ffe08a,var(--gold) 45%,var(--sun));color:var(--night);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:900;line-height:1.05;
+    box-shadow:0 6px 20px rgba(0,0,0,.35);transform:rotate(-8deg)}
+  .star-badge .b1{font-size:12px;font-weight:700}
+  .star-badge .b2{font-size:21px}
+  .star-badge .b3{font-size:11px;font-weight:700}
+
+  /* QUESTIONS */
+  .qs{padding:15px 40px 2px}
+  .qs h2{font-size:21px;font-weight:900;line-height:1.25}
+  .qs h2 em{font-style:normal;color:var(--sun)}
+  .qs .who{font-size:14.5px;color:var(--muted);margin-top:3px;font-weight:500}
+  .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:10px}
+  .q{display:flex;gap:9px;align-items:flex-start;font-size:14.6px;line-height:1.3;font-weight:500}
+  .q i{flex:none;width:21px;height:21px;border-radius:6px;border:2.5px solid var(--sun);margin-top:1px;position:relative}
+  .q i::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:900;font-size:13px;color:var(--sun)}
+  .q b{font-weight:800}
+  .answer{margin-top:10px;background:var(--night);color:#fff;border-radius:12px;padding:8px 16px;font-size:15.5px;font-weight:700;display:flex;gap:10px;align-items:center}
+  .answer .arrow{color:var(--gold);font-size:20px}
+
+  /* STORY */
+  .story{display:flex;gap:16px;padding:13px 40px 0;align-items:flex-start}
+  .story .txt{flex:1}
+  .story h3{font-size:26px;font-weight:900;line-height:1.05;color:var(--night)}
+  .story p{font-size:13.8px;line-height:1.45;margin-top:5px;color:#26304f}
+  .steps{display:flex;flex-wrap:nowrap;gap:4px;margin-top:7px;align-items:center}
+  .steps span{font-size:11.6px;font-weight:700;padding:3px 7px;border-radius:20px;background:#e9ecf6;color:var(--night2)}
+  .steps span.hot{background:var(--sun);color:#fff}
+  .steps em{font-style:normal;color:var(--sun);font-weight:900;font-size:13px}
+  .story .pics{width:262px;height:191px;flex:none;display:block}
+  .story .pics img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+  .pics .p1{object-position:50% 55%}
+
+  /* GAINS */
+  .gains{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:11px 40px 0}
+  .gain{background:#fff;border-radius:12px;padding:7px 10px 7px;border-top:4px solid var(--sun);box-shadow:0 2px 8px rgba(20,32,63,.07)}
+  .gain .ic{display:none}
+  .gain h4{font-size:14.5px;font-weight:900}
+  .gain p{font-size:12.3px;color:var(--muted);line-height:1.35;margin-top:2px}
+
+  /* PROS + PROOF */
+  .pros{margin:9px 40px 0;padding:8px 14px;border-radius:12px;background:#fff1de;border-right:5px solid var(--sun);font-size:13.3px;line-height:1.4}
+  .pros b{font-weight:900}
+  .proof{display:flex;gap:10px;padding:8px 40px 6px;align-items:center}
+  .proof img{height:58px;border-radius:5px;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+  .proof .chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+  .proof .chips span{font-size:12.3px;font-weight:700;padding:4px 9px;border-radius:8px;background:#fff;border:1.5px solid #e2e5ef}
+  .proof .chips span b{color:var(--sun)}
+
+  /* CTA */
+  .cta{margin-top:auto;background:linear-gradient(90deg,var(--sun),var(--gold));padding:11px 40px 12px;display:flex;align-items:center;justify-content:space-between;color:var(--night)}
+  .cta .l1{font-size:15px;font-weight:700}
+  .cta .l2{font-size:22px;font-weight:900;line-height:1.1}
+  .phone{background:var(--night);color:#fff;border-radius:14px;padding:9px 20px;text-align:center;box-shadow:0 6px 16px rgba(11,22,51,.35)}
+  .phone small{display:block;font-size:12.5px;color:var(--gold);font-weight:700}
+  .phone strong{font-size:33px;font-weight:900;letter-spacing:1px;direction:ltr;display:block;line-height:1.05}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <section class="hero">
+    <div class="stars"></div>
+    <div class="hero-text">
+      <span class="kicker">אימון NLP אישי לילדים ובני נוער</span>
+      <h1>הוא לא עצלן.<br>הוא לא חלש.<br><span class="glow">הוא פשוט עוד לא<br>מצא את הכוח שלו.</span></h1>
+      <p class="sub">ליווי אישי שעוזר לילד <b>להבין מה עובר עליו</b>, לבנות ביטחון ולהתחיל לזוז קדימה, עם מאמן ש<b>היה בדיוק שם</b>.</p>
+      <div class="name"><strong>יאיר עמר</strong><span>מאמן · מרצה · סופר · ספורטאי פראלימפי</span></div>
+    </div>
+    <div class="hero-photo">
+      <img src="../media/hero.jpg" alt="יאיר עמר">
+      <div class="star-badge"><span class="b1">מקום ראשון</span><span class="b2">מרצה<br>השנה</span><span class="b3">2021</span></div>
+    </div>
+  </section>
+
+  <section class="qs">
+    <h2>אמא, אבא, שאלו את עצמכם בכנות: <em>האם הילד שלכם…</em></h2>
+    <div class="who">וגם לך, עובדת סוציאלית, יועצת או פסיכולוג, שרואים את הילד הזה מולכם</div>
+    <div class="qgrid">
+      <div class="q"><i></i><span><b>נסגר בחדר</b> ומפסיק לשתף מה עובר עליו?</span></div>
+      <div class="q"><i></i><span>אומר <b>"אני לא שווה"</b>, "אין לי סיכוי", "עזבו אותי"?</span></div>
+      <div class="q"><i></i><span><b>מוותר עוד לפני שניסה</b>, בלימודים, בספורט, בחברה?</span></div>
+      <div class="q"><i></i><span>מתמודד עם <b>לקות, מגבלה או שונות</b> שגונבת לו את הביטחון?</span></div>
+      <div class="q"><i></i><span>בורח למסכים, <b>מתפרץ או מתכנס</b> ואתם כבר לא יודעים איך לגשת?</span></div>
+      <div class="q"><i></i><span>מלא כוחות, <b>ואתם מרגישים שהוא לא מגיע אליהם</b>?</span></div>
+    </div>
+    <div class="answer"><span class="arrow">◄</span> אם עניתם "כן" אפילו על שאלה אחת, זה הזמן להרים טלפון.</div>
+  </section>
+
+  <section class="story">
+    <div class="txt">
+      <h3>הייתי הילד הזה.</h3>
+      <p>גדלתי עם לקות ראייה ונכות ברגליים, ממקום חשוך שבו נראה שאין לאן להתקדם. עברתי ניתוחים, כיסא גלגלים וקביים, ובחרתי לקום. היום אני ספורטאי פראלימפי, מרצה וסופר, ומאמן ילדים ונוער למצוא את האור שלהם.</p>
+      <div class="steps">
+        <span>לקות ראייה</span><em>←</em><span>כיסא גלגלים</span><em>←</em><span>קביים</span><em>←</em><span>ספורט פראלימפי</span><em>←</em><span class="hot">הבמה</span>
+      </div>
+      <p style="font-weight:800;color:var(--night);margin-top:7px">מי שלמד לקום מכיסא גלגלים, יודע ללמד ילד לקום מכל נפילה.</p>
+    </div>
+    <div class="pics">
+      <img class="p1" src="../media/journey.jpg" alt="מכיסא גלגלים לעמידה">
+    </div>
+  </section>
+
+  <section class="gains">
+    <div class="gain"><div class="ic">💪</div><h4>ביטחון עצמי</h4><p>להאמין ביכולת, גם כשמשהו "לא כמו כולם"</p></div>
+    <div class="gain"><div class="ic">🛡️</div><h4>חוסן מנטלי</h4><p>לקום אחרי נפילה, כישלון או פגיעה</p></div>
+    <div class="gain"><div class="ic">🎯</div><h4>מטרות והתמדה</h4><p>מחלום לצעדים קטנים שעושים כל יום</p></div>
+    <div class="gain"><div class="ic">🧭</div><h4>שליטה ברגשות</h4><p>כלים מעשיים לכעס, לחץ ופחד</p></div>
+  </section>
+
+  <div class="pros"><b>לאנשי טיפול וחינוך:</b> ליווי אימוני ממוקד מטרה, שמשלים את הטיפול ואינו מחליף אותו. בני נוער שקשה להגיע אליהם נפתחים מול מי שעבר את זה בעצמו.</div>
+
+  <section class="proof">
+    <img src="../media/bookcover.jpg" alt="הספר למרות הכל כוכב יאיר">
+    <div class="chips">
+      <span>📖 מחבר הספר <b>"למרות הכל, כוכב יאיר"</b></span>
+      <span>📺 בטלוויזיה ובעיתונות</span>
+      <span>🏆 <b>מקום ראשון</b> בתחרות מרצה השנה</span>
+      <span>❤️ השפיע על <b>אלפי</b> ילדים ובני נוער ברחבי הארץ</span>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div>
+      <div class="l1">השיחה הראשונה יכולה לשנות כיוון.</div>
+      <div class="l2">התקשרו עכשיו<br>לשיחת היכרות</div>
+    </div>
+    <div class="phone"><small>טלפון / וואטסאפ · יאיר עמר</small><strong>052-707-5450</strong></div>
+  </section>
+
+</div>
+</body>
+</html>
