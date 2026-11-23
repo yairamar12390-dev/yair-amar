@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>צומחות עם עידית – יוגה וציור לבנות · ירושלים</title>
+<meta name="description" content="חוגי יוגה וציור לבנות בקבוצות קטנות של 5 בנות, בבית חם בקריית יובל מערב, ירושלים. המקום שבו כל ילדה צומחת למיטב שלה.">
+<meta property="og:title" content="צומחות עם עידית – יוגה וציור לבנות">
+<meta property="og:description" content="קבוצות קטנות של 5 בנות · בית חם בקריית יובל מערב · דקות מהרכבת הקלה">
+<meta property="og:image" content="https://yairamar12390-dev.github.io/yair-amar/idit/media/share.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F2542D">
+<link rel="icon" href="media/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2B1B3D; --cream:#FFF6EA; --orange:#F2542D; --teal:#2EC4B6; --pink:#FF5D8F;
+  --yellow:#FFB627; --green:#3FA34D; --purple:#7B4FD6; --earth:#C8553D; --ink2:#5E4A3E;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Rubik',system-ui,sans-serif;background:var(--cream);color:var(--plum);overflow-x:hidden;-webkit-tap-highlight-color:transparent;padding-bottom:92px}
+h1,h2,h3{font-family:'Fredoka','Rubik',sans-serif;line-height:1.1}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.wrap{max-width:560px;margin:0 auto;padding:0 18px;position:relative;z-index:2}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+/* HERO */
+.hero{position:relative;padding:28px 0 40px;text-align:center;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;z-index:0;animation:float 14s ease-in-out infinite}
+.b1{width:320px;height:320px;background:#FFD7A8;top:-80px;right:-90px}
+.b2{width:260px;height:260px;background:#BFF0EA;top:180px;left:-110px;animation-delay:-5s}
+.b3{width:220px;height:220px;background:#FFC6DA;top:420px;right:-60px;animation-delay:-9s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,30px) scale(1.12)}}
+.logo{width:150px;height:150px;margin:0 auto;animation:breathe 4.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.logo .flame{transform-origin:100px 43px;animation:flick 1.6s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scaleY(1) rotate(0)}30%{transform:scaleY(1.08) rotate(-3deg)}60%{transform:scaleY(.95) rotate(3deg)}}
+.logo .leaf{transform-origin:100px 146px;animation:sway 3.4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg)}}
+.brand{font-size:64px;font-weight:700;margin-top:6px;letter-spacing:-1px}
+.brand2{font-family:'Fredoka';font-size:34px;font-weight:600;color:var(--orange);margin-top:2px}
+.subtitle{margin-top:12px;font-size:18px;font-weight:500;color:var(--ink2)}
+.tag{display:inline-block;margin-top:16px;padding:10px 18px;border-radius:999px;background:#fff;box-shadow:0 6px 18px rgba(43,27,61,.08);font-weight:500;font-size:16px}
+.tag b{color:var(--orange)}
+
+.photo-ring{position:relative;width:200px;height:200px;margin:26px auto 4px}
+.photo-ring::before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(var(--orange),var(--yellow),var(--green),var(--teal),var(--purple),var(--pink),var(--orange));animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photo-ring img{position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 22%;border-radius:50%;border:6px solid var(--cream)}
+
+/* ACTIONS */
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.act{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:13px;font-weight:500;background:none;border:0;color:var(--plum);font-family:inherit;cursor:pointer}
+.act i{width:60px;height:60px;border-radius:20px;display:grid;place-items:center;box-shadow:0 8px 18px rgba(43,27,61,.14);transition:transform .2s}
+.act:active i{transform:scale(.92)}
+.act svg{width:28px;height:28px}
+.i-wa{background:#25D366}.i-call{background:var(--orange)}.i-map{background:var(--teal)}.i-save{background:var(--purple)}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;border-radius:18px;border:0;font-family:'Rubik';font-size:19px;font-weight:700;color:#fff;cursor:pointer;position:relative;overflow:hidden}
+.btn svg{width:26px;height:26px}
+.btn-wa{background:#25D366;box-shadow:0 10px 24px rgba(37,211,102,.35);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.btn-wa::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 3s infinite}
+@keyframes shine{0%{left:-60%}60%,100%{left:130%}}
+.hero .btn{margin-top:22px}
+
+/* SECTIONS */
+section{padding:34px 0}
+.eyebrow{display:inline-block;font-size:14px;font-weight:700;color:#fff;background:var(--teal);padding:5px 14px;border-radius:999px}
+h2{font-size:36px;margin-top:12px}
+h2 em{font-style:normal;color:var(--orange)}
+.lead{margin-top:12px;font-size:18px;line-height:1.6;color:var(--ink2)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* CLASS CARDS */
+.classes{display:grid;gap:18px;margin-top:22px}
+.ccard{border-radius:28px;overflow:hidden;background:#fff;box-shadow:0 14px 34px rgba(43,27,61,.10)}
+.ccard .img{height:230px;background-size:cover;background-position:center 30%;position:relative}
+.ccard .img span{position:absolute;bottom:14px;right:14px;background:var(--orange);color:#fff;font-family:'Fredoka';font-weight:600;font-size:24px;padding:6px 18px;border-radius:999px}
+.ccard.paint .img span{background:var(--purple)}
+.ccard .body{padding:20px 20px 24px}
+.ccard h3{font-size:26px}
+.ccard p{margin-top:8px;line-height:1.6;color:var(--ink2);font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:15px;font-weight:500;padding:7px 14px;border-radius:999px;color:#fff}
+
+/* VIDEOS */
+.videos{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 18px 10px;margin:0 -18px;scrollbar-width:none}
+.videos::-webkit-scrollbar{display:none}
+.vid{flex:0 0 72%;max-width:300px;scroll-snap-align:center;position:relative;border-radius:24px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 14px 30px rgba(43,27,61,.22);background:#FFD7A8}
+.vid video{width:100%;height:100%;object-fit:cover}
+.vid .play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:22px;gap:10px;background:linear-gradient(to top,rgba(43,27,61,.65),transparent 45%);border:0;cursor:pointer;color:#fff;font-family:'Rubik';font-weight:700;font-size:18px}
+.vid .play i{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 10px rgba(255,255,255,.25)}
+.vid .play i svg{width:28px;height:28px;margin-right:-4px}
+.vid.playing .play{display:none}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.dots b{width:8px;height:8px;border-radius:50%;background:#E6D6C4}
+
+/* IDIT */
+.about{background:#fff;border-radius:32px;padding:26px 22px;box-shadow:0 14px 34px rgba(43,27,61,.08);position:relative;overflow:hidden}
+.about::before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#FFE3C2;top:-60px;left:-60px}
+.about .row{display:flex;gap:16px;align-items:center;position:relative}
+.about .row img{width:110px;height:140px;object-fit:cover;object-position:50% 20%;border-radius:22px;flex:none}
+.quote{margin-top:18px;font-family:'Fredoka';font-size:24px;font-weight:600;line-height:1.35;color:var(--orange);position:relative}
+
+/* WHY */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.wcard{border-radius:24px;padding:18px 16px;color:#fff;min-height:132px;display:flex;flex-direction:column;justify-content:space-between}
+.wcard svg{width:34px;height:34px}
+.wcard b{display:block;font-family:'Fredoka';font-size:22px;line-height:1.15}
+.wcard small{display:block;margin-top:4px;font-size:14px;opacity:.95;line-height:1.35}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;cursor:zoom-in;transition:transform .3s}
+.gallery img:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:100%}
+.lightbox{position:fixed;inset:0;background:rgba(43,27,61,.92);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.on{display:flex}
+.lightbox img{max-height:88vh;border-radius:18px}
+
+/* FORM */
+.form{background:linear-gradient(160deg,#fff 0%,#FFF0E0 100%);border-radius:32px;padding:26px 20px;box-shadow:0 14px 34px rgba(43,27,61,.10)}
+.form label{display:block;font-weight:700;margin:16px 0 8px;font-size:16px}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:90px;min-height:50px;border-radius:16px;border:2px solid #EADBC9;background:#fff;font-family:'Rubik';font-size:16px;font-weight:500;color:var(--plum);cursor:pointer;transition:all .2s}
+.seg.age button{min-width:0}
+.seg button.on{border-color:var(--orange);background:var(--orange);color:#fff;transform:scale(1.03)}
+.form input{width:100%;min-height:52px;border-radius:16px;border:2px solid #EADBC9;padding:0 16px;font-family:'Rubik';font-size:17px;background:#fff;color:var(--plum)}
+.form input:focus{outline:none;border-color:var(--teal)}
+.form .btn{margin-top:22px}
+.note{text-align:center;margin-top:12px;font-size:14px;color:var(--ink2)}
+
+/* FOOTER + BAR */
+footer{text-align:center;padding:30px 0 20px;color:var(--ink2);font-size:15px;line-height:1.8}
+footer .big{font-family:'Fredoka';font-size:30px;color:var(--orange);font-weight:700;direction:ltr;display:inline-block}
+.bar{position:fixed;bottom:0;left:0;right:0;z-index:40;padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(255,246,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid #F0E2D0;display:flex;gap:10px;max-width:560px;margin:0 auto}
+.bar .btn{min-height:54px;font-size:17px}
+.bar .btn-call{flex:0 0 64px;background:var(--orange);box-shadow:0 8px 18px rgba(242,84,45,.3)}
+.toast{position:fixed;top:20px;left:50%;transform:translate(-50%,-80px);background:var(--plum);color:#fff;padding:12px 20px;border-radius:14px;font-weight:500;z-index:60;transition:transform .4s}
+.toast.on{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 200 200" role="img" aria-label="לוגו צומחות עם עידית">
+      <path d="M34 152 A86 86 0 1 1 166 152" fill="none" stroke="#2EC4B6" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="168" cy="164" r="5" fill="#2EC4B6"/><circle cx="154" cy="48" r="6" fill="#FF5D8F"/>
+      <circle cx="44" cy="62" r="4.5" fill="#FFB627"/><circle cx="164" cy="98" r="3.5" fill="#7B4FD6"/>
+      <path d="M36 154 Q100 126 164 154 Q100 172 36 154 Z" fill="#C8553D"/>
+      <g class="leaf"><path d="M100 146 C84 144 72 134 66 120 C84 120 96 130 100 146 Z" fill="#7BC043"/>
+      <path d="M101 150 C116 150 128 144 136 134 C120 132 107 140 101 150 Z" fill="#3FA34D"/></g>
+      <g fill="none" stroke="#2B1B3D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 76 L100 118 L100 152"/><path d="M100 118 L124 128 L102 138"/>
+      <path d="M93 80 L78 58 L97 42"/><path d="M107 80 L122 58 L103 42"/></g>
+      <circle cx="100" cy="64" r="9" fill="#2B1B3D"/>
+      <g class="flame"><path d="M100 4 C106 14 117 20 116 30 C115 38 108 43 100 43 C92 43 85 38 84 30 C83 22 91 18 93 11 C95 16 97 19 99 21 C99 14 98 9 100 4 Z" fill="#F2542D"/>
+      <path d="M100 21 C103 26 108 29 107 34 C106 38 103 40 100 40 C97 40 94 38 93 34 C93 30 97 27 100 21 Z" fill="#FFB627"/></g>
+    </svg>
+    <h1 class="brand">צומחות</h1>
+    <div class="brand2">עם עידית</div>
+    <p class="subtitle">יוגה וציור לבנות · ירושלים</p>
+
+    <div class="photo-ring"><img src="media/portrait.jpg" alt="עידית, המורה ליוגה ולציור"></div>
+    <div class="tag">המקום שבו כל ילדה <b>צומחת למיטב שלה</b></div>
+
+    <a class="btn btn-wa wa-link" href="#" data-msg="היי עידית, הגעתי מהכרטיס הדיגיטלי ואשמח לשמוע פרטים על החוגים לבנות 🌱">
+      <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+      דברו איתי בוואטסאפ
+    </a>
+
+    <div class="actions">
+      <a class="act wa-link" href="#" data-msg="היי עידית, אשמח לפרטים על החוגים 😊"><i class="i-wa"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg></i>וואטסאפ</a>
+      <a class="act" href="tel:+972587697850"><i class="i-call"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></i>התקשרו</a>
+      <a class="act" href="https://www.google.com/maps/search/?api=1&query=%D7%A7%D7%A8%D7%99%D7%99%D7%AA+%D7%99%D7%95%D7%91%D7%9C+%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D" target="_blank" rel="noopener"><i class="i-map"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></i>איך מגיעים</a>
+      <button class="act" id="saveContact" type="button"><i class="i-save"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M19 8v6M16 11h6"/></svg></i>שמירת איש קשר</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="reveal">
+    <span class="eyebrow">החוגים שלנו</span>
+    <h2>שני עולמות, <em>מטרה אחת</em></h2>
+    <p class="lead">שהבת שלך תגלה כמה היא מסוגלת, תאהב את עצמה ותצמח בביטחון. בקבוצות קטנות, בבית חם ומצויר ביד.</p>
+    <div class="classes">
+      <article class="ccard">
+        <div class="img" style="background-image:url(media/aerial.jpg)"><span>יוגה לבנות</span></div>
+        <div class="body">
+          <h3>גמישות בגוף – וגמישות במחשבה</h3>
+          <p>יוגה על המזרן ובערסל, שמחזקת את הגוף, מרגיעה את הנפש ובונה ביטחון עצמי מתנוחה לתנוחה. בלי תחרות ובלי השוואות – כל אחת בקצב שלה.</p>
+          <div class="chips"><span class="chip" style="background:var(--orange)">ביטחון עצמי</span><span class="chip" style="background:var(--teal)">גמישות</span><span class="chip" style="background:var(--green)">ריכוז ורוגע</span><span class="chip" style="background:var(--pink)">אהבה לגוף</span></div>
+        </div>
+      </article>
+      <article class="ccard paint">
+        <div class="img" style="background-image:url(media/paint1.jpg)"><span>ציור לבנות</span></div>
+        <div class="body">
+          <h3>לצייר את הילדה שבפנים</h3>
+          <p>בציור אין "יפה" או "לא יפה" – יש ילדה שמבטאת את עצמה. כאן כל ציור מתקבל באהבה, בלי ציונים ובלי השוואות.</p>
+          <div class="chips"><span class="chip" style="background:var(--purple)">ביטוי אישי</span><span class="chip" style="background:var(--yellow)">דמיון ויצירה</span><span class="chip" style="background:var(--orange)">ערך עצמי</span><span class="chip" style="background:var(--teal)">אהבה עצמית</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="reveal" id="videos">
+    <span class="eyebrow" style="background:var(--orange)">צפו בנו</span>
+    <h2>רגעים <em>מהחוגים</em></h2>
+    <div class="videos" id="vlist">
+      <div class="vid"><video src="media/yoga1.mp4" poster="media/yoga1_poster.jpg" playsinline preload="none"></video><button class="play"><i><svg viewBox="0 0 24 24" fill="#F2542D"><path d="M8 5v14l11-7z"/></svg></i>גמישות וביטחון</button></div>
+      <div class="vid"><video src="media/painting.mp4" poster="media/painting_poster.jpg" playsinline preload="none"></video><button class="play"><i><svg viewBox="0 0 24 24" fill="#7B4FD6"><path d="M8 5v14l11-7z"/></svg></i>חוגי ציור</button></div>
+      <div class="vid"><video src="media/yoga2.mp4" poster="media/yoga2_poster.jpg" playsinline preload="none"></video><button class="play"><i><svg viewBox="0 0 24 24" fill="#2EC4B6"><path d="M8 5v14l11-7z"/></svg></i>הכירו את עידית</button></div>
+      <div class="vid"><video src="media/yoga3.mp4" poster="media/yoga3_poster.jpg" playsinline preload="none"></video><button class="play"><i><svg viewBox="0 0 24 24" fill="#3FA34D"><path d="M8 5v14l11-7z"/></svg></i>רגע של שקט</button></div>
+    </div>
+    <div class="dots" id="vdots"><b></b><b></b><b></b><b></b></div>
+  </section>
+
+  <section class="reveal">
+    <div class="about">
+      <div class="row">
+        <img src="media/hat.jpg" alt="עידית">
+        <div>
+          <span class="eyebrow" style="background:var(--pink)">נעים להכיר</span>
+          <h2 style="font-size:32px">אני <em>עידית</em></h2>
+          <p style="margin-top:6px;color:var(--ink2);font-size:16px">מורה מוסמכת ליוגה ולציור</p>
+        </div>
+      </div>
+      <p class="lead">אני אוהבת ילדים ונוער מכל הלב, ומחוברת מאוד לעולם שלהם. אני מקשיבה באמת, יודעת לדבר אל כל ילדה – ורואה כל אחת בדיוק כמו שהיא. דרך התנועה והצבע אני עוזרת לבנות לבטא את עצמן, לחזק את הביטחון העצמי ולאהוב את הגוף שלהן באהבה.</p>
+      <p class="quote">"הלוואי שכל בת תצא מכאן חזקה, שמחה ובטוחה יותר בעצמה."</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="eyebrow" style="background:var(--purple)">למה אצלנו</span>
+    <h2>קטן, חם <em>ואישי</em></h2>
+    <div class="why">
+      <div class="wcard" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M15 20a4.5 4.5 0 0 1 7-3.7"/></svg><div><b>5 בנות בלבד</b><small>בכל קבוצה – יחס אישי לכל אחת</small></div></div>
+      <div class="wcard" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg><div><b>בית חם</b><small>מואר, מצויר ביד ומלא צמחים</small></div></div>
+      <div class="wcard" style="background:var(--purple)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="14" r=".6"/><circle cx="15" cy="14" r=".6"/></svg><div><b>ליד הרכבת</b><small>דקות הליכה מהרכבת הקלה בקריית יובל מערב</small></div></div>
+      <div class="wcard" style="background:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 8 4 4 4c0 5 3 8 8 8ZM12 14c0-4 3-7 8-7 0 4-3 7-8 7Z"/></svg><div><b>קבוצות לפי גיל</b><small>יוגה מגיל 6 ועד 18 · ציור מגיל 6 ועד 16</small></div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="eyebrow" style="background:var(--yellow);color:var(--plum)">גלריה</span>
+    <h2>הצצה <em>לבית שלנו</em></h2>
+    <div class="gallery" id="gallery">
+      <img src="media/idit.jpg" alt="עידית בסטודיו הביתי" loading="lazy">
+      <img src="media/swirl.jpg" alt="ציור צבעוני של עידית" loading="lazy">
+      <img src="media/wheel.jpg" alt="תנוחת גשר" loading="lazy">
+      <img src="media/piano.jpg" alt="פינת הפסנתר והציורים" loading="lazy">
+      <img src="media/girlpaint.jpg" alt="עידית עם ציור" loading="lazy">
+      <img src="media/stretch.jpg" alt="מתיחה על המזרן" loading="lazy">
+    </div>
+  </section>
+
+  <section class="reveal" id="register">
+    <div class="form">
+      <span class="eyebrow">הרשמה</span>
+      <h2>שמרו מקום <em>לבת שלכם</em></h2>
+      <p class="lead" style="font-size:16px">הקבוצות קטנות והמקומות מוגבלים. מלאו פרטים קצרים – וההודעה תישלח ישר לעידית בוואטסאפ.</p>
+      <label>איזה חוג?</label>
+      <div class="seg" data-name="class"><button type="button" class="on">יוגה</button><button type="button">ציור</button><button type="button">שניהם</button></div>
+      <label>גיל הבת</label>
+      <div class="seg age" data-name="age"><button type="button" class="on" dir="ltr">6–8</button><button type="button" dir="ltr">9–11</button><button type="button" dir="ltr">12–13</button><button type="button" dir="ltr">14–18</button></div>
+      <label for="pname">שם ההורה</label>
+      <input id="pname" type="text" placeholder="השם שלך" autocomplete="name">
+      <label for="kname">שם הבת</label>
+      <input id="kname" type="text" placeholder="שם הבת">
+      <a class="btn btn-wa" id="sendReg" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+        שליחה לעידית בוואטסאפ
+      </a>
+      <p class="note">אפשר גם להתקשר: <a href="tel:+972587697850" style="color:var(--orange);font-weight:700;direction:ltr;display:inline-block">058-7697850</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="big">058-7697850</div><br>
+  קריית יובל מערב, ירושלים · דקות הליכה מהרכבת הקלה<br>
+  <button class="act" id="shareBtn" type="button" style="margin:14px auto 0;flex-direction:row;font-size:16px;color:var(--orange);font-weight:700">שתפו את הכרטיס עם חברות ↗</button>
+  <div style="margin-top:14px;font-size:13px;opacity:.7">© צומחות עם עידית</div>
+</footer>
+
+<div class="bar">
+  <a class="btn btn-wa wa-link" href="#" data-msg="היי עידית, אשמח לשמוע פרטים ולשמור מקום לבת שלי 🌱">
+    <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+    לשמור מקום בוואטסאפ
+  </a>
+  <a class="btn btn-call" href="tel:+972587697850" aria-label="התקשרו לעידית"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></a>
+</div>
+
+<div class="lightbox" id="lb"><img alt=""></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const PHONE = '972587697850';
+const wa = msg => 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg);
+document.querySelectorAll('.wa-link').forEach(a => { a.href = wa(a.dataset.msg); a.target = '_blank'; a.rel = 'noopener'; a.addEventListener('click', e => burst(e.clientX, e.clientY)); });
+
+// toast
+const toast = t => { const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); setTimeout(() => el.classList.remove('on'), 2200); };
+
+// segmented controls
+document.querySelectorAll('.seg').forEach(s => s.addEventListener('click', e => {
+  if (e.target.tagName !== 'BUTTON') return;
+  s.querySelectorAll('button').forEach(b => b.classList.remove('on')); e.target.classList.add('on');
+  burst(e.clientX, e.clientY, 12);
+}));
+const regA = document.getElementById('sendReg');
+function regMsg(){
+  const get = n => document.querySelector(`.seg[data-name="${n}"] .on`).textContent;
+  const p = document.getElementById('pname').value.trim(), k = document.getElementById('kname').value.trim();
+  let msg = 'היי עידית! 🌱 אשמח לשמור מקום בחוג ' + get('class') + '.';
+  if (k) msg += '\nשם הבת: ' + k; msg += '\nגיל: ' + get('age');
+  if (p) msg += '\nשמי: ' + p;
+  return msg + '\n(הגעתי מהכרטיס הדיגיטלי)';
+}
+const updReg = () => { regA.href = wa(regMsg()); };
+['pname','kname'].forEach(id => document.getElementById(id).addEventListener('input', updReg));
+document.querySelectorAll('.seg').forEach(s => s.addEventListener('click', () => setTimeout(updReg, 0)));
+updReg();
+regA.addEventListener('click', e => { updReg(); burst(e.clientX, e.clientY, 60); });
+
+// save contact (vCard)
+document.getElementById('saveContact').addEventListener('click', () => {
+  const v = ['BEGIN:VCARD','VERSION:3.0','N:;עידית;;;','FN:עידית – צומחות','ORG:צומחות עם עידית – יוגה וציור לבנות','TEL;TYPE=CELL:+972587697850','ADR;TYPE=WORK:;;קריית יובל מערב;ירושלים;;;ישראל','URL:' + location.href,'END:VCARD'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([v], {type: 'text/vcard'})); a.download = 'Idit-Tzomchot.vcf'; a.click();
+  toast('איש הקשר נשמר 💚');
+});
+
+// share
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const data = {title: 'צומחות עם עידית', text: 'חוגי יוגה וציור לבנות בירושלים 🌱', url: location.href};
+  try { if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(location.href); toast('הקישור הועתק'); } } catch (e) {}
+});
+
+// videos
+const vids = [...document.querySelectorAll('.vid')];
+vids.forEach(box => {
+  const v = box.querySelector('video');
+  box.querySelector('.play').addEventListener('click', () => {
+    vids.forEach(o => { if (o !== box) { o.querySelector('video').pause(); o.classList.remove('playing'); } });
+    v.controls = true; v.play(); box.classList.add('playing');
+  });
+  v.addEventListener('ended', () => { box.classList.remove('playing'); v.controls = false; });
+});
+const vl = document.getElementById('vlist'), dots = [...document.querySelectorAll('#vdots b')];
+const setDot = () => { const w = vl.firstElementChild.offsetWidth + 14; const i = Math.round(Math.abs(vl.scrollLeft) / w); dots.forEach((d, j) => d.style.background = j === i ? 'var(--orange)' : '#E6D6C4'); };
+vl.addEventListener('scroll', setDot, {passive: true}); setDot();
+
+// gallery lightbox
+const lb = document.getElementById('lb');
+document.querySelectorAll('#gallery img').forEach(i => i.addEventListener('click', () => { lb.querySelector('img').src = i.src; lb.classList.add('on'); }));
+lb.addEventListener('click', () => lb.classList.remove('on'));
+
+// reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// nature + sparkle canvas
+const cv = document.getElementById('fx'), cx = cv.getContext('2d');
+let W, H, dpr = Math.min(2, window.devicePixelRatio || 1);
+const resize = () => { W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+resize(); addEventListener('resize', resize);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const COLORS = ['#7BC043', '#3FA34D', '#FFB627', '#FF5D8F', '#2EC4B6'];
+const leaves = Array.from({length: 14}, () => newLeaf(true));
+function newLeaf(init) { return {x: Math.random() * W, y: init ? Math.random() * H : -30, s: 8 + Math.random() * 10, vy: .25 + Math.random() * .5, sw: Math.random() * 6.28, r: Math.random() * 6.28, c: COLORS[Math.random() * 2 | 0], petal: Math.random() < .35}; }
+const sparks = Array.from({length: 22}, () => ({x: Math.random(), y: Math.random(), s: 2 + Math.random() * 4, f: .5 + Math.random(), p: Math.random() * 6.28, c: ['#FFB627', '#fff', '#FF5D8F', '#2EC4B6'][Math.random() * 4 | 0]}));
+let parts = [];
+function burst(x, y, n = 36) {
+  if (reduce) return;
+  x = x || W / 2; y = y || H / 2;
+  for (let i = 0; i < n; i++) { const a = Math.random() * 6.28, sp = 2 + Math.random() * 6; parts.push({x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 2, life: 1, c: ['#F2542D', '#FFB627', '#2EC4B6', '#FF5D8F', '#7B4FD6', '#3FA34D'][i % 6], s: 4 + Math.random() * 5, star: Math.random() < .5}); }
+}
+function star(x, y, s, c, a) { cx.globalAlpha = a; cx.fillStyle = c; cx.beginPath(); const k = s * .25; cx.moveTo(x, y - s); cx.lineTo(x + k, y - k); cx.lineTo(x + s, y); cx.lineTo(x + k, y + k); cx.lineTo(x, y + s); cx.lineTo(x - k, y + k); cx.lineTo(x - s, y); cx.lineTo(x - k, y - k); cx.closePath(); cx.fill(); }
+let t = 0;
+function loop() {
+  t += 1 / 60; cx.clearRect(0, 0, W, H);
+  for (const l of leaves) {
+    l.y += l.vy; l.sw += .02; l.r += .01; const x = l.x + Math.sin(l.sw) * 18;
+    cx.save(); cx.translate(x, l.y); cx.rotate(l.r); cx.globalAlpha = .55;
+    if (l.petal) { cx.fillStyle = '#FFC1D6'; cx.beginPath(); cx.ellipse(0, 0, l.s * .55, l.s * .35, 0, 0, 6.28); cx.fill(); }
+    else { cx.fillStyle = l.c; cx.beginPath(); cx.moveTo(0, -l.s); cx.quadraticCurveTo(l.s * .8, 0, 0, l.s); cx.quadraticCurveTo(-l.s * .8, 0, 0, -l.s); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.5)'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(0, -l.s); cx.lineTo(0, l.s); cx.stroke(); }
+    cx.restore();
+    if (l.y > H + 30) Object.assign(l, newLeaf(false));
+  }
+  for (const s of sparks) { const a = Math.pow(.5 + .5 * Math.sin(t * s.f * 3 + s.p), 3) * .9; if (a > .05) star(s.x * W, s.y * H, s.s * 1.6, s.c, a); }
+  parts = parts.filter(p => p.life > 0);
+  for (const p of parts) { p.x += p.vx; p.y += p.vy; p.vy += .18; p.life -= .018; if (p.star) star(p.x, p.y, p.s * 1.4, p.c, p.life); else { cx.globalAlpha = p.life; cx.fillStyle = p.c; cx.beginPath(); cx.arc(p.x, p.y, p.s / 2, 0, 6.28); cx.fill(); } }
+  cx.globalAlpha = 1;
+  requestAnimationFrame(loop);
+}
+if (!reduce) loop();
+</script>
+</body>
+</html>
