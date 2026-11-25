@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>יוגה עם עידית כהן</title>
+<meta name="description" content="שיעורי יוגה ויוגה אווירית בקבוצות קטנות ובשיעורים פרטיים. גמישות, נשימה ושקט פנימי.">
+<meta property="og:title" content="יוגה עם עידית כהן · קריית יובל, ירושלים">
+<meta property="og:description" content="שיעורי יוגה ויוגה אווירית בקבוצות קטנות ובשיעורים פרטיים.">
+<meta property="og:image" content="media/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120d0b;--bg2:#1c1512;--card:#241b17;--gold:#d9b25f;--gold2:#f3d58c;--text:#f5ede4;--muted:#c9b9a8;--rose:#e9a7a0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Heebo,system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Frank Ruhl Libre",serif;line-height:1.25}
+.gold{color:var(--gold2)}
+/* hero */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(18,13,11,.97) 8%,rgba(18,13,11,.55) 45%,rgba(18,13,11,.05) 75%)}
+.hero .wrap{position:relative;z-index:1;padding-bottom:56px;padding-top:40px}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold2);border-radius:999px;padding:4px 16px;font-size:.9rem;letter-spacing:.5px;margin-bottom:16px;background:rgba(18,13,11,.5)}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);max-width:14ch}
+.hero p{font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--muted);max-width:38ch;margin:14px 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;padding:14px 26px;border-radius:999px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a120c;box-shadow:0 8px 26px rgba(217,178,95,.35)}
+.btn-ghost{border:1px solid rgba(243,213,140,.6);color:var(--gold2)}
+.btn svg{width:22px;height:22px}
+section{padding:84px 0}
+.sec-title{text-align:center;margin-bottom:44px}
+.sec-title h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.sec-title p{color:var(--muted);margin-top:8px}
+.line{width:64px;height:2px;background:var(--gold);margin:16px auto 0}
+/* benefits */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid rgba(217,178,95,.18);border-radius:20px;padding:28px 24px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(217,178,95,.6);transform:translateY(-3px)}
+.icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(217,178,95,.12);color:var(--gold2);margin-bottom:16px}
+.icon svg{width:28px;height:28px}
+.card h3{font-size:1.3rem;margin-bottom:6px}
+.card p{color:var(--muted)}
+/* classes */
+.alt{background:var(--bg2)}
+.classes{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.class{background:linear-gradient(160deg,#2b201b,#1d1613);border-radius:22px;padding:32px 28px;border:1px solid rgba(217,178,95,.22);position:relative}
+.class .num{font-family:"Frank Ruhl Libre",serif;color:var(--gold);font-size:2.4rem;opacity:.55;position:absolute;left:24px;top:14px}
+.class h3{font-size:1.45rem;margin-bottom:8px}
+.class ul{list-style:none;margin-top:14px}
+.class li{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+.class li::before{content:"✦";color:var(--gold);margin-left:8px}
+/* about */
+.about{display:grid;gap:40px;grid-template-columns:1fr;align-items:center}
+.about img{width:100%;border-radius:24px;border:1px solid rgba(217,178,95,.3);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.about p{color:var(--muted);margin-bottom:14px;font-size:1.08rem}
+.about h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:16px}
+@media(min-width:860px){.about{grid-template-columns:1.1fr 1fr}}
+/* steps */
+.steps{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{text-align:center;padding:24px}
+.step b{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 14px;border-radius:50%;border:1px solid var(--gold);color:var(--gold2);font-size:1.3rem;font-family:"Frank Ruhl Libre",serif}
+.step p{color:var(--muted)}
+/* cta */
+.cta{text-align:center;background:radial-gradient(ellipse at center,rgba(217,178,95,.16),transparent 70%)}
+.cta h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
+.cta p{color:var(--muted);margin-bottom:28px;font-size:1.15rem}
+.todo{background:#3a2a10;color:var(--gold2);border:1px dashed var(--gold);border-radius:6px;padding:0 6px;font-size:.92em}
+footer{text-align:center;padding:30px 20px 100px;color:#8d7d6d;font-size:.9rem;border-top:1px solid rgba(255,255,255,.06)}
+/* floating whatsapp */
+.wa{position:fixed;bottom:18px;left:18px;z-index:50;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:pulse 2.4s infinite}
+.wa svg{width:32px;height:32px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:640px){.hero img{object-position:40% center}section{padding:64px 0}}
+@media(min-width:900px){
+  .hero{align-items:center}
+  .hero img{object-position:20% center}
+  .hero::after{background:linear-gradient(to left,rgba(18,13,11,.96) 0%,rgba(18,13,11,.8) 30%,rgba(18,13,11,.15) 55%,rgba(18,13,11,0) 70%),linear-gradient(to top,rgba(18,13,11,.9),transparent 30%)}
+  .hero .wrap{max-width:none;margin:0;padding-right:6vw;width:44%}
+}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.wa{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <picture>
+    <source media="(max-width:640px)" srcset="media/hero-mobile.jpg">
+    <img src="media/hero.jpg" alt="מתיחה צידית על מזרן יוגה באור בוקר, ליד ערסלי יוגה אווירית">
+  </picture>
+  <div class="wrap">
+    <span class="tag">עידית כהן · יוגה ויוגה אווירית · קריית יובל</span>
+    <h1>לחזור הביתה <span class="gold">לגוף שלך</span></h1>
+    <p>שיעורי יוגה בקבוצות קטנות ובאופן פרטי. גמישות, כוח ושקט פנימי, בקצב שמתאים לך בדיוק.</p>
+    <div class="btns">
+      <a class="btn btn-gold" href="https://wa.me/972587697850" data-wa>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+        לשיעור ניסיון
+      </a>
+      <a class="btn btn-ghost" href="#classes">השיעורים</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-title reveal"><h2>מה היוגה <span class="gold">נותנת לך</span></h2><p>שעה אחת על המזרן משפיעה על כל השבוע</p><div class="line"></div></div>
+    <div class="grid">
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18c3-8 13-8 16 0M12 4v6"/></svg></div><h3>גמישות ותנועה</h3><p>גב משוחרר, כתפיים רכות וטווח תנועה שגדל משיעור לשיעור.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><h3>כוח ויציבה</h3><p>חיזוק שרירי הליבה והגב, ויציבה זקופה ונוחה ביום-יום.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9c4 0 4 3 8 3s4-3 8-3M4 15c4 0 4 3 8 3s4-3 8-3"/></svg></div><h3>נשימה ושקט</h3><p>כלים פשוטים להורדת לחץ, שינה טובה יותר וראש צלול.</p></div>
+      <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg></div><h3>חיבור לעצמך</h3><p>זמן שהוא רק שלך, בלי שיפוטיות ובלי תחרות, בקבלה מלאה.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="classes">
+  <div class="wrap">
+    <div class="sec-title reveal"><h2>השיעורים</h2><p>לכל רמה, גם אם מעולם לא עשית יוגה</p><div class="line"></div></div>
+    <div class="classes">
+      <div class="class reveal"><span class="num">01</span><h3>יוגה קלאסית</h3><p>תרגול מאוזן של תנוחות, נשימה והרפיה.</p><ul><li>קבוצות קטנות ואישיות</li><li>התאמה לכל גוף ולכל רמה</li><li>הרפיה מודרכת בסיום</li></ul></div>
+      <div class="class reveal"><span class="num">02</span><h3>יוגה אווירית</h3><p>תרגול בערסל בד תלוי: מתיחות עמוקות, היפוכים וכיף אמיתי.</p><ul><li>שחרור עמוד השדרה</li><li>חיזוק וגמישות</li><li>מתאים גם למתחילים</li></ul></div>
+      <div class="class reveal"><span class="num">03</span><h3>שיעור פרטי</h3><p>תרגול שנבנה סביבך: המטרות שלך, הגוף שלך, הזמן שלך.</p><ul><li>בקריית יובל, ירושלים</li><li>מעקב והתקדמות אישית</li><li>גם לזוגות</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about">
+    <img class="reveal" src="media/hero-mobile.jpg" alt="מורה ליוגה בתרגול מתיחה" loading="lazy">
+    <div class="reveal">
+      <h2>נעים להכיר, <span class="gold">אני עידית</span></h2>
+      <p>היוגה נכנסה לחיים שלי כמקום של שקט ושל חזרה לעצמי, והיום אני מלמדת אותה באותה אהבה.</p>
+      <p>בשיעורים שלי יש מקום לכל גוף: מי שרוצה להתחזק, מי שרוצה להשתחרר, ומי שפשוט צריכה שעה של נשימה.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-title reveal"><h2>איך מתחילים?</h2><div class="line"></div></div>
+    <div class="steps">
+      <div class="step reveal"><b>1</b><h3>שולחים הודעה</h3><p>בוואטסאפ, בלחיצה אחת.</p></div>
+      <div class="step reveal"><b>2</b><h3>קובעים שיעור ניסיון</h3><p>בוחרים יום ושעה שנוחים לך.</p></div>
+      <div class="step reveal"><b>3</b><h3>מגיעים עם מזרן וחיוך</h3><p>כל השאר עלינו.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap reveal">
+    <h2>המזרן שלך <span class="gold">כבר מחכה</span></h2>
+    <p>שיעור ניסיון ראשון · קריית יובל, ירושלים</p>
+    <a class="btn btn-gold" href="https://wa.me/972587697850" data-wa>לשריון מקום בוואטסאפ</a>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> · עידית כהן · יוגה ויוגה אווירית · קריית יובל, ירושלים · <a href="tel:0587697850">058-769-7850</a></footer>
+
+<a class="wa" href="https://wa.me/972587697850" data-wa aria-label="וואטסאפ"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
+
+<script>
+// WhatsApp number (international format, no +). Fill in before publishing.
+const WA = "972587697850";
+const msg = encodeURIComponent("היי! ראיתי את הדף שלך ואשמח לשמוע על שיעור ניסיון ביוגה 🧘‍♀️");
+document.querySelectorAll("[data-wa]").forEach(a => { if (WA) { a.href = `https://wa.me/${WA}?text=${msg}`; a.target = "_blank"; a.rel = "noopener"; } });
+document.getElementById("y").textContent = new Date().getFullYear();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold: .15});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
