@@ -1,0 +1,96 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:540px;height:960px;overflow:hidden;font-family:Heebo,sans-serif}
+#bg{position:absolute;inset:0}
+.blob{position:absolute;border-radius:50%;filter:blur(30px);opacity:.55}
+#sun{position:absolute;width:220px;height:220px;border-radius:50%;left:160px;background:radial-gradient(circle,#ffe2b8,#f7b58c 60%,rgba(247,181,140,0) 72%)}
+.t{position:absolute;width:100%;text-align:center;color:#4a2a4f}
+#w1,#w2,#w3{font-size:64px;font-weight:800;letter-spacing:1px}
+#fig{position:absolute;left:70px;top:230px;width:400px;height:600px}
+#pose{font-size:34px;font-weight:700;top:800px}
+#breath{font-size:40px;font-weight:300;top:180px}
+#ring{position:absolute;border-radius:50%;border:3px solid rgba(255,255,255,.9);box-shadow:0 0 40px rgba(255,255,255,.7)}
+#card .t{position:static}
+#card{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px}
+#name{font-size:60px;font-weight:800}
+#tag{font-size:32px;font-weight:400}
+#gift{font-size:28px;font-weight:700;background:#fff;color:#8c3b6b;padding:12px 28px;border-radius:40px;width:auto!important}
+#phone{font-size:30px;font-weight:700;direction:rtl}
+#line{width:120px;height:4px;border-radius:2px;background:#8c3b6b}
+</style></head><body>
+<div id="bg"></div>
+<div class="blob" id="b1" style="width:300px;height:300px;background:#f6c1d9"></div>
+<div class="blob" id="b2" style="width:260px;height:260px;background:#c9b8f2"></div>
+<div class="blob" id="b3" style="width:240px;height:240px;background:#ffd8a8"></div>
+<div id="sun"></div>
+<div class="t" id="w1" style="top:300px">נשימה.</div>
+<div class="t" id="w2" style="top:400px">תנועה.</div>
+<div class="t" id="w3" style="top:500px">שקט.</div>
+<div id="ring"></div>
+<div class="t" id="breath"></div>
+<svg id="fig" viewBox="0 0 400 600"><g id="g" stroke="#5a2d5f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none">
+<polyline id="body"/><polyline id="ll"/><polyline id="rl"/><polyline id="la"/><polyline id="ra"/>
+<circle id="head" r="30" fill="#5a2d5f" stroke="none"/></g></svg>
+<div class="t" id="pose"></div>
+<div id="card">
+ <div class="t" id="name">[שם הסטודיו]</div>
+ <div id="line"></div>
+ <div class="t" id="tag">חוגי יוגה לכל הגילאים</div>
+ <div class="t" id="gift">שיעור ניסיון ראשון במתנה</div>
+ <div class="t" id="phone">להרשמה: 050-000-0000</div>
+</div>
+<script>
+const P={
+ mountain:{head:[200,125],neck:[200,170],hip:[200,330],lk:[188,445],lf:[188,560],rk:[212,445],rf:[212,560],le:[172,100],lh:[188,30],re:[228,100],rh:[212,30]},
+ tree:{head:[200,125],neck:[200,170],hip:[200,330],lk:[196,445],lf:[196,560],rk:[290,395],rf:[208,405],le:[158,80],lh:[198,15],re:[242,80],rh:[202,15]},
+ warrior:{head:[200,135],neck:[200,180],hip:[200,345],lk:[95,420],lf:[80,560],rk:[275,450],rf:[335,560],le:[120,185],lh:[35,185],re:[280,185],rh:[365,185]},
+ lotus:{head:[200,295],neck:[200,340],hip:[200,495],lk:[105,520],lf:[230,535],rk:[295,520],rf:[170,535],le:[140,430],lh:[112,505],re:[260,430],rh:[288,505]}
+};
+const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const seg=(t,a,b)=>ease(cl((t-a)/(b-a)));
+const lerp=(a,b,k)=>a+(b-a)*k;
+function mix(A,B,k){const o={};for(const j in A)o[j]=[lerp(A[j][0],B[j][0],k),lerp(A[j][1],B[j][1],k)];return o}
+const $=id=>document.getElementById(id);
+const pts=(...a)=>a.map(p=>p.join(',')).join(' ');
+function render(t){
+ const h=lerp(330,300,Math.sin(t/16*Math.PI*2)*.5+.5);
+ $('bg').style.background=`linear-gradient(170deg,hsl(${h},70%,92%),hsl(${h-300},85%,88%) 55%,hsl(${h-310},80%,84%))`;
+ $('b1').style.transform=`translate(${-40+Math.sin(t*.5)*40}px,${80+Math.cos(t*.4)*40}px)`;
+ $('b2').style.transform=`translate(${300+Math.cos(t*.45)*40}px,${620+Math.sin(t*.35)*50}px)`;
+ $('b3').style.transform=`translate(${260+Math.sin(t*.3)*30}px,${40+Math.cos(t*.5)*30}px)`;
+ // sun
+ const sr=seg(t,0,3), sOut=seg(t,12.5,14);
+ $('sun').style.top=lerp(760,90,sr)+'px'; $('sun').style.opacity=lerp(sr,.35,sOut);
+ // words
+ ['w1','w2','w3'].forEach((id,i)=>{const k=seg(t,.4+i*.7,1.2+i*.7), o=seg(t,3.6,4.2);
+  $(id).style.opacity=k*(1-o); $(id).style.transform=`translateY(${(1-k)*40-o*30}px)`; $(id).style.filter=`blur(${(1-k)*8}px)`});
+ // figure
+ let p;
+ if(t<5.5)p=P.mountain;
+ else if(t<7.5)p=mix(P.mountain,P.tree,seg(t,5.5,6.5));
+ else if(t<9.5)p=mix(P.tree,P.warrior,seg(t,7.5,8.5));
+ else p=mix(P.warrior,P.lotus,seg(t,9.5,10.5));
+ $('body').setAttribute('points',pts(p.neck,p.hip));
+ $('ll').setAttribute('points',pts(p.hip,p.lk,p.lf));$('rl').setAttribute('points',pts(p.hip,p.rk,p.rf));
+ $('la').setAttribute('points',pts(p.neck,p.le,p.lh));$('ra').setAttribute('points',pts(p.neck,p.re,p.rh));
+ $('head').setAttribute('cx',p.head[0]);$('head').setAttribute('cy',p.head[1]);
+ const fi=seg(t,4,4.8), fo=seg(t,12.6,13.4);
+ $('fig').style.opacity=fi*(1-fo); $('fig').style.transform=`translateY(${(1-fi)*40}px) scale(${1-fo*.15})`;
+ const names=[[4,'תנוחת ההר'],[6.2,'תנוחת העץ'],[8.2,'תנוחת הלוחם'],[10.2,'תנוחת הלוטוס']];
+ let nm='',no=0;for(const [s,n] of names){if(t>=s){nm=n;no=seg(t,s,s+.5)}}
+ $('pose').textContent=nm; $('pose').style.opacity=nm?no*(1-seg(t,10.9,11.3)):0;
+ // breathing
+ const bi=seg(t,10.8,11.2)*(1-seg(t,12.6,13.1));
+ const inh=t<11.85?seg(t,10.8,11.85):1-seg(t,11.85,12.9);
+ const R=lerp(160,250,inh);
+ Object.assign($('ring').style,{width:2*R+'px',height:2*R+'px',left:270-R+'px',top:620-R+'px',opacity:bi});
+ $('breath').textContent=t<11.85?'שאיפה...':'נשיפה...'; $('breath').style.opacity=bi;
+ // card
+ const c=seg(t,13.2,14.2);
+ [...$('card').children].forEach((el,i)=>{const k=seg(t,13.2+i*.25,14+i*.25);el.style.opacity=k;el.style.transform=`translateY(${(1-k)*30}px)`});
+}
+window.render=render;render(0);
+</script></body></html>
